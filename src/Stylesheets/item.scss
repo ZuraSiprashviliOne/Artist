@@ -1,0 +1,462 @@
+
+@import 'mix';
+
+#item{
+    position: relative;
+    overflow: hidden;
+
+    *{
+        box-sizing: border-box;
+    }
+
+    .particles-wrapper{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;;
+        pointer-events: none;
+
+        .particles-canvas{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    #itemContent{
+        padding: $m * 2;
+        width: $containerWidth;
+        margin: $navHeight auto;
+        margin-top: $navHeight + $m;
+        border: 1px solid rgba($_white, $____opacity);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include shadow();
+
+        >*{
+            padding: $m;
+
+            &#itemData{
+                flex: 0 0 75%;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                .commentsBlock{
+                    margin: $m 0;
+                    margin-top: $m * 5;
+                    padding: $m;
+                    border: 1px solid rgba($_white, $____opacity);
+                    @include shadow();
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    >.title{
+                        font-size: $_fs;
+                        font-family: 'Bangers', cursive;
+                        padding: $m;
+                    }
+
+                    .comment{
+                        margin: $m 0;
+                        border: 1px solid rgba($_white, $____opacity);
+                    }
+
+                    .title{
+                        border-bottom: 1px solid rgba($_white, $____opacity);
+                        padding: $m $m * 1.5;
+                        text-transform: capitalize;
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .author{
+                            font-family: 'Oswald',sans-serif;
+                            padding: $m;
+                            font-size: $fs * 2;
+                        }
+                        .metas{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+    
+                            .meta{
+                                margin: 0 $m /4;
+                                
+                                &.w-icon{
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+    
+                                    span{
+                                        margin: 0 $m / 4;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .message_text{
+                        padding: $m;
+                        >div{
+                            border: 1px solid rgba($_white, $____opacity);
+                            padding: $m;
+                            color: $_white;
+                            font-size: $fs / 1.1;
+                            background-color: rgba($black, $___opacity);
+                        }
+                    }
+                }
+
+                .noComments{
+                    font-size: $_fs;
+                    padding: $m;
+                    font-family: 'Bangers',cursive;
+                    color: $_white;
+                }
+
+                .commenterBlock{
+                    margin: $m 0;
+                    padding: $m;
+                    border: 1px solid rgba($_white, $____opacity);
+                    @include shadow();
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    .title{
+                        padding: $m;
+                        border-bottom: 1px solid rgba($_white, $____opacity);
+                        font-family: 'Bangers', cursive;
+                        font-size: $__fs;
+                        color: $white;
+                        text-transform: capitalize;
+                    }
+
+                    .comment_adder{
+                        padding: $m;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+
+                        >*{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            margin: $m 0;
+
+                            .label{
+                                padding: $m;
+                                text-transform: capitalize;
+                            }
+                            .input input, .input textarea{
+                                background-color: rgba($black, $_opacity);
+                                color: $_white;
+                                width: 100%;
+                                resize: none;
+                                border: 1px solid rgba($_white, $____opacity);
+                                padding: $m;
+                            }
+
+                            &.buttons{
+                                flex-direction: row;
+                                justify-content: flex-end;
+
+                                button{
+                                    margin: 0;
+                                    cursor: pointer;
+                                    background-color: transparent;
+                                    padding: $m $m * 1.2;
+                                    border: 1px solid rgba($_white, $___opacity);
+                                    color: $_white;
+                                    transition: $transition opacity, $transition background-color;
+                                    font-family: 'Oswald', sans-serif;
+                                    text-transform: uppercase;
+                                    @include shadow();
+
+                                    transition: $transition background-color;
+
+                                    &.active{
+                                        background-color: $_white !important;
+                                        color: $_black !important;
+                                    }
+
+                                    &:first-child{
+                                        border-right: 0;
+                                    }
+
+                                    &:hover{
+                                        @extend .active;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .data{
+                    border: 1px solid rgba($_white, $____opacity);
+                    @include shadow();
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+
+                    .iages, .info{
+                        flex: 0.5;
+                    }
+
+                    .images{
+                        $imageHeight: 500px;
+                        height: $imageHeight;
+                        overflow: hidden;
+                        flex: .5;
+                        position: relative;
+
+                        .loveIt{
+                            position: absolute;
+                            top: $m * 2;
+                            right: $m * 2;
+                            z-index: 100;
+                            
+                            .loveIcon{
+                                transition: $transition background-color, $transition border-radius;
+                                background-color: transparent;
+                                margin: $m * 2;
+                                color: $white;
+                                border:0;
+                                background-color: rgba($black, $__opacity / 1.4);
+                                color: $white;
+                                padding: $m * 2;
+                                cursor: pointer;
+                                @include shadow();
+
+                                padding: $m;
+
+                                &.active{
+                                    font-size: $fs;
+                                    border-radius:50%;
+                                    transform: scale(1.2);
+                                    color: $black;
+                                    background-color: $white;
+                                }
+
+                                &:hover{
+                                    @extend .active;
+                                }
+                            }
+                            
+                        }
+
+                        .swiper-container{
+                            width: 100%;
+                            height: 100%;
+
+                            .swiper-slide{
+                                width: 100%;
+                                height: 100%;
+                                background-position: center center;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                img{
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+
+                            .swiper-button-next, .swiper-button-prev{
+                                border:0;
+                                background: transparent;
+                                color: $_white;
+                                font-size: $___fs;
+                            }
+                            .swiper-pagination-progressbar-fill{
+                                background-color: $_white;
+                            }
+                        }
+                    }
+
+                    .info{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        >*{
+                            flex: 1;
+                        }
+                        .title{
+                            text-transform: capitalize;
+                            font-size: $_fs;
+                            font-family: 'Oswald', sans-serif;
+                            
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            padding: $m * 2;
+                        }
+                        .titleInfos{
+                            text-transform: capitalize;
+                            padding: $m;
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-content: center;
+
+                            .w-icon{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-around;
+                                align-items: center;
+                                margin: 0 $m / 4;
+
+                                span{
+                                    margin: 0 $m / 4;
+                                }
+                            }
+                        }
+                        .description{
+                            padding: $m;
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                        .item_categories{
+                            padding: $m;
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            flex-wrap: wrap;
+                            align-items: center;
+    
+                            .categoryItem{
+                                flex: 0  0 50%;
+                                color: $white;
+                                text-align: center;
+                                text-transform: capitalize;
+                                font-family: 'Oswald', sans-serif;
+                                padding: $m / 2;
+                                transition: $transition background-color;
+
+
+                                .category{
+                                    display: block;
+                                    border: 1px solid rgba($_white, $___opacity);
+                                    padding: $m $m * 2;
+                                }
+
+                                &.active{
+                                    .category{
+                                        background-color: $white;
+                                        color: $black;
+                                    }
+                                }
+
+                                &:hover{
+                                    @extend .active;
+                                }
+                            }
+                        }
+
+                        .metas{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            text-transform: capitalize;
+
+                            .metaItems{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-around;
+                                align-items: center;
+
+                                .meta{
+                                    &.w-icon{
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-around;
+                                        align-items: center;
+                                    }
+                                    padding:$m * 2 $m;
+                                    transition: $transition background-color;
+                                    cursor: default;
+                                    
+                                    &.active{
+                                        background-color: rgba($_white, $____opacity / 1.2);
+                                    }
+    
+                                    &:hover{
+                                        @extend .active;
+                                    }
+    
+                                    span{
+                                        margin: 0 $m / 5;
+                                    }
+                                }
+                            }
+                            .readMore{
+                                font-family: 'Oswald', sans-serif;
+                                letter-spacing: 1px;
+                                @extend .metaItems;
+                                >a{
+                                    cursor: pointer;
+                                    display: block;
+                                    @extend .meta;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &#itemSidebar{
+                flex: 0 0 25%;
+
+                .categoriesList.list{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    margin-bottom: $m;
+
+                    @include shadow();
+
+                    .listItem{
+                        font-family: 'Oswald', sans-serif;
+                        text-transform: uppercase;
+                        margin: $m / 3 0;
+                        border: 1px solid rgba($_white, $____opacity);
+                        transition: $transition background-color;
+                        @include shadow();
+
+                        a{
+                            display: block;
+                            padding: $m $m * 1.5;
+                        }
+
+                        &.active{
+                            background-color: $_white;
+                            color: $_black;
+                        }
+
+                        &:hover{
+                            @extend .active;
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}

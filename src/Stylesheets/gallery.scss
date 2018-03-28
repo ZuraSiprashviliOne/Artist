@@ -1,0 +1,316 @@
+
+@import 'mix';
+
+#gallery{
+    position: relative;
+    overflow: hidden;
+
+    *{
+        box-sizing: border-box;
+    }
+
+    .particles-wrapper{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;;
+        pointer-events: none;
+
+        .particles-canvas{
+            width: 100%;
+            height: 100%;;
+        }
+    }
+
+    #galleryContent{
+        margin-top: $navHeight;
+        padding: $m;
+        width: $containerWidth;
+        margin: $navHeight auto;
+
+        .galleryNavigation{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba($_white, $____opacity);
+            padding: $m * 2;
+            @include shadow();
+
+            .title{
+                font-size: $__fs;
+                text-transform: capitalize;
+                font-family: 'Bangers', cursive;
+                a{
+                    display: block;
+                }
+            }
+
+            .categories{
+                text-transform: uppercase;
+                font-family: 'Oswald', sans-serif;
+                font-size: $fs;
+                
+                .list{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    .listItem{
+                        border: 1px solid rgba($_white, $___opacity);
+                        color: $_white;
+                        transition: $transition opacity, $transition background-color;
+                        margin: 0 $m / 2;
+                        @include shadow();
+
+                        &.active{
+                            background-color: $_white !important;
+                            color: $_black !important;
+                        }
+
+                        >a{
+                            padding: $m;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+
+        .galleryData{
+            margin: $m * 5 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
+            border: 1px solid rgba($_white, $____opacity);
+
+            @include shadow();
+
+            .data-column{
+                flex: 1;
+                margin: $m / 2 0;
+
+                &:last-child{
+                    margin-right: $m;
+                }
+
+                &:first-child{
+                    margin-left: $m;
+                }
+
+                @include shadow();
+
+                .data-item{
+                    border: 1px solid rgba($_white, $____opacity);
+                    margin: $m $m / 2;
+                    @include shadow();
+                    transition: $transition border-color;
+                    flex: 1;
+
+                    &:hover{
+                        border-color: rgba($_white, $___opacity);
+                    }
+
+                    .image{
+                        line-height: 0;
+                        padding: $m / 2;
+                        position: relative;
+                        img{
+                            width: 100%;
+                        }
+
+                        .droper{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+
+                            .dropIcon{
+                                border:0;
+                                background-color: rgba($black, $__opacity / 1.4);
+                                color: $white;
+                                padding: $m * 2;
+                                cursor: pointer;
+                                @include shadow();
+                                
+                                transition: $transition;
+
+                                &.active{
+                                    font-size: $_fs;
+                                }
+                            }
+                        }
+                        .loveIt{
+                            @extend .droper;
+                            top: 0;
+                            right: 0;
+                            left: 0;
+                            bottom: auto;
+                            justify-content: flex-end;
+
+                            .loveIcon{
+                                @extend .dropIcon;
+                                margin: $m * 2;
+
+                                padding: $m;
+
+                                &.active{
+                                    font-size: $fs;
+                                    border-radius:50%;
+                                    transform: scale(1.2);
+                                    color: $black;
+                                    background-color: $white;
+                                }
+
+                                &:hover{
+                                    @extend .active;
+                                }
+                            }
+                            
+                        }
+                    }
+                    .info{
+                        max-height: 0;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: $transition opacity, $transition max-height;
+                        &.active{
+                            opacity: 1;
+                            visibility: visible;
+                            max-height: 500vh;
+                        }
+                        .title{
+                            text-transform: capitalize;
+                            font-size: $_fs;
+                            font-family: 'Oswald', sans-serif;
+                            
+                            >a{
+                                border-bottom: 1px solid rgba($_white, $____opacity);
+                                display: block;
+                                padding: $m * 2;
+                            }
+                        }
+                        .titleInfos{
+                            text-transform: capitalize;
+                            padding: $m;
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            align-content: center;
+
+                            .w-icon{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-around;
+                                align-items: center;
+                                margin: 0 $m / 4;
+
+                                span{
+                                    margin: 0 $m / 4;
+                                }
+                            }
+                        }
+                        .description{
+                            padding: $m;
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                        }
+                        .item_categories{
+                            padding: $m;
+                            border-bottom: 1px solid rgba($_white, $____opacity);
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            flex-wrap: wrap;
+                            align-items: center;
+    
+                            .categoryItem{
+                                flex: 0  0 50%;
+                                color: $white;
+                                text-align: center;
+                                text-transform: capitalize;
+                                font-family: 'Oswald', sans-serif;
+                                padding: $m / 2;
+                                transition: $transition background-color;
+
+
+                                .category{
+                                    display: block;
+                                    border: 1px solid rgba($_white, $___opacity);
+                                    padding: $m $m * 2;
+                                }
+
+                                &.active{
+                                    .category{
+                                        background-color: $white;
+                                        color: $black;
+                                    }
+                                }
+
+                                &:hover{
+                                    @extend .active;
+                                }
+                            }
+                        }
+
+                        .metas{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            text-transform: capitalize;
+
+                            .metaItems{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-around;
+                                align-items: center;
+
+                                .meta{
+                                    &.w-icon{
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-around;
+                                        align-items: center;
+                                    }
+                                    padding:$m * 2 $m;
+                                    transition: $transition background-color;
+                                    cursor: default;
+                                    
+                                    &.active{
+                                        background-color: rgba($_white, $____opacity / 1.2);
+                                    }
+    
+                                    &:hover{
+                                        @extend .active;
+                                    }
+    
+                                    span{
+                                        margin: 0 $m / 5;
+                                    }
+                                }
+                            }
+                            .readMore{
+                                font-family: 'Oswald', sans-serif;
+                                letter-spacing: 1px;
+                                @extend .metaItems;
+                                >a{
+                                    cursor: pointer;
+                                    display: block;
+                                    @extend .meta;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

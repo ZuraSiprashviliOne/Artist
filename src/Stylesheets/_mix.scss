@@ -1,0 +1,42 @@
+
+$black: #000;
+$_black: #121212;
+$__black: #323232;
+$___black: #484848;
+
+$white: #fff;
+$_white: #f9f9f9;
+$__white: #f1f1f1;
+$___white: darken($__white, 5%);
+
+$fs: 16px;
+$_fs: 34px;
+$__fs: 36px;
+$___fs: 40px;
+$____fs: 52px;
+$_____fs: 62px;
+
+$transition: 0.5s;
+
+$m: 10px;
+
+$opacity: 0.9;
+$_opacity: 0.7;
+$__opacity: 0.5;
+$___opacity: 0.2;
+$____opacity: 0.1;
+
+$navHeight: 90px;
+$smallNavHeight: 65px;
+
+
+$containerWidth: 1333px;
+
+.mp0{
+  margin: 0;
+  padding: 0;
+}
+
+@mixin shadow(){
+  box-shadow: 0 0 15px 4px rgba($black, $___opacity);
+}

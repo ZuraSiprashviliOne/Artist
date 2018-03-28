@@ -1,0 +1,60 @@
+.mp0 {
+  margin: 0;
+  padding: 0; }
+
+#home {
+  color: #f9f9f9;
+  position: relative; }
+  #home * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  #home *::selection {
+    display: none; }
+  #home .header {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative; }
+    #home .header .particles-wrapper {
+      min-height: inherit;
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      #home .header .particles-wrapper .particles-canvas {
+        min-height: inherit; }
+    #home .header .page-content {
+      pointer-events: none;
+      position: relative;
+      padding: 0 !important; }
+    #home .header .texts {
+      pointer-events: none;
+      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      position: relative; }
+      #home .header .texts .brand {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; }
+        #home .header .texts .brand .logo, #home .header .texts .brand .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; }
+        #home .header .texts .brand .logo {
+          line-height: 0; }
+          #home .header .texts .brand .logo img {
+            max-height: 62px; }
+        #home .header .texts .brand .text {
+          font-family: 'Bangers', cursive;
+          font-size: 62px; }
+
+/*# sourceMappingURL=home.css.map */

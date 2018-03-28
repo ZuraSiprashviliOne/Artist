@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bangers|Lobster+Two|Oswald|Raleway|Roboto|Sedgwick+Ave+Disply');
+
+@import 'mix';
+
+body {
+  @extend .mp0;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  background-color: $__white;
+  background: #000;
+  color: $_white;
+  a {
+    text-decoration: none !important;
+    color: inherit;
+    transition: $transition;
+  }
+
+  ul {
+    list-style: none;
+    @extend .mp0;
+  }
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      @extend .mp0;
+      font-weight: inherit;
+    }
+  }
+
+  p {
+    @extend .mp0;
+  }
+
+  * {
+    outline: none;
+  }
+
+  .loading{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: rgba($_white, $opacity);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: $____fs;
+
+    .fa{
+      animation-name: loading;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      transform: rotate(0);
+      transition: $transition;
+    }
+  }
+
+  @keyframes loading{
+    from{
+      transform: rotate(0);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+  
+  #root {
+    min-height: inherit;
+    height: inherit;
+    overflow: hidden;
+
+    #App {
+      min-height: inherit;
+      height: inherit;
+      overflow-x: hidden;
+      position: relative;
+
+      .page {
+        color: $_white;
+        min-height: 100vh;
+        position: relative;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+
+        .page-content {
+          padding-top: $navHeight;
+
+          .container{
+            width: $containerWidth;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
