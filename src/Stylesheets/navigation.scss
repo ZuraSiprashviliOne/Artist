@@ -180,7 +180,7 @@
     transition: $transition * 2;
     width: $containerWidth;
     margin: 0 auto;
-    border-bottom: 1px solid rgba($_white, $___opacity);
+    border-bottom: 1px solid rgba($_white, $___opacity) !important;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
 
