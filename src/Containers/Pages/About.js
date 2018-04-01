@@ -95,22 +95,24 @@ class Element extends React.Component{
                 <div id={'aboutContent'}>
                     <div className={'leftSide'}>
                         <div className={'image'}>
-                            <img src={'https://scontent.fgyd4-1.fna.fbcdn.net/v/t1.0-9/21617745_769308323268938_8169516463968774069_n.jpg?_nc_cat=0&oh=3de768d4d93fc1e8069ac07069076c70&oe=5B72FA00'}/>
+                            <img src={this.props.About.user.image}/>
                         </div>
                         <div className={'preForm'}>
                             <p className={'title'}>
                                 <Translate
                                     from={this.props.language}
                                     divider={this.props.divider}>
-                                    text me
+                                    {this.props.About.textBlock.title}
                                 </Translate>
                             </p>
                             <p className={'description'}>
-                                <Translate
+                                {/* <Translate
                                     from={this.props.language}
-                                    divider={this.props.divider}>
-                                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </Translate>
+                                    divider={this.props.divider}> */}
+                                    <div 
+                                        dangerouslySetInnerHTML={{__html: this.props.About.textBlock.content}}
+                                        className={'desc-text'} />
+                                {/* </Translate> */}
                             </p>
                         </div>
                         <ContactForm 
@@ -118,7 +120,13 @@ class Element extends React.Component{
                             language={this.props.language}/>
                     </div>
                     <div className={'rightSide'}>
-
+                        {/* <Translate
+                            from={this.props.language}
+                            divider={this.props.divider}> */}
+                            <div 
+                                dangerouslySetInnerHTML={{__html: this.props.About.about}}
+                                className={'about-text'} />
+                        {/* </Translate> */}
                     </div>
                 </div>
             </div>

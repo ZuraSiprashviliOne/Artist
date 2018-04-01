@@ -4,7 +4,9 @@ const aboutReducer = (state = {
     language: null,
     divider: null,
     particles: {},
-
+    user: null,
+    textBlock: null,
+    about: null
 }, action) => {
     switch(action.type){
         
