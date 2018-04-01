@@ -22,7 +22,24 @@
     height: 65px !important; }
 
   #gallery #galleryContent {
-    width: auto !important; } }
+    width: auto !important; }
+
+  #item {
+    width: auto !important; }
+    #item #itemContent {
+      flex-direction: column-reverse !important;
+      width: auto !important; }
+
+  #about #aboutContent {
+    width: auto !important;
+    flex-direction: column !important; }
+    #about #aboutContent .leftSide {
+      display: flex;
+      flex-direction: row !important;
+      justify-content: space-around; }
+      #about #aboutContent .leftSide > * {
+        flex: 1 !important;
+        height: 100%; } }
 @media only screen and (max-width: 900px) {
   #navigation .nav .menu .navItems .navItem {
     display: none !important; }
@@ -34,8 +51,15 @@
   #gallery .galleryNavigation {
     flex-direction: column !important; }
     #gallery .galleryNavigation > * {
-      margin: 10px 0; } }
-@media only screen and (max-width: 542px) {
+      margin: 10px 0; }
+
+  #about #aboutContent {
+    padding: 0 !important; }
+    #about #aboutContent .leftSide {
+      align-items: center; }
+      #about #aboutContent .leftSide .preForm {
+        display: none; } }
+@media only screen and (max-width: 785px) {
   #home .texts .brand {
     flex-direction: column !important;
     text-align: center;
@@ -56,6 +80,34 @@
           width: 100%;
           margin: 5px 0 !important; }
   #gallery .data-column.list {
-    margin: 0; } }
+    margin: 0; }
+    #gallery .data-column.list .data-item .metas {
+      flex-direction: column; }
+      #gallery .data-column.list .data-item .metas .metaItems {
+        flex-direction: column !important;
+        width: 100%; }
+        #gallery .data-column.list .data-item .metas .metaItems .meta {
+          flex: 1;
+          width: 100%; }
+      #gallery .data-column.list .data-item .metas .readMore {
+        width: 100%; }
+        #gallery .data-column.list .data-item .metas .readMore a {
+          display: block;
+          width: 100%;
+          text-align: center; }
+
+  #item #itemContent .data {
+    flex-direction: column !important; }
+  #item #itemContent .images {
+    height: 350px !important; }
+
+  #about #aboutContent .leftSide {
+    display: flex;
+    flex-direction: column !important; }
+    #about #aboutContent .leftSide .preForm {
+      display: block !important; }
+    #about #aboutContent .leftSide > * {
+      flex: 1;
+      width: 100%; } }
 
 /*# sourceMappingURL=media.css.map */

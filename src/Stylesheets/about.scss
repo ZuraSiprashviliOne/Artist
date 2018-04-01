@@ -1,0 +1,166 @@
+
+@import 'mix';
+
+#about{
+    position: relative;
+    overflow: hidden;
+
+    *{
+        box-sizing: border-box;
+    }
+
+    .particles-wrapper{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;;
+        pointer-events: none;
+
+        .particles-canvas{
+            width: 100%;
+            height: 100%;;
+        }
+    }
+
+    #aboutContent{
+        padding: $m * 2;
+        width: $containerWidth;
+        margin: $navHeight auto;
+        margin-top: $navHeight + $m * 2;
+        border: 1px solid rgba($_white, $____opacity);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include shadow();
+
+        >div{
+            flex: 1;
+            padding: $m;
+        }
+        
+        .leftSide{
+            flex: 0.4;
+            .image{
+                margin: $m $m / 2;
+                padding: $m;
+                border: 1px solid rgba($_white, $____opacity);
+                line-height: 0;
+                img{
+                    width: 100%;
+                }
+
+                transition: $transition border-color;
+
+                &:hover{
+                    border-color: rgba($white, $___opacity);
+                }
+
+                @include shadow();
+            }
+            .preForm{
+                margin: $m $m / 2;
+                border: 1px solid rgba($_white, $____opacity);
+                padding: $m;
+                @include shadow();
+                transition: $transition border-color;
+
+                color: $_white;
+
+                .title{
+                    text-transform: uppercase;
+                    font-family: 'Bangers', cursive;
+                    padding: $m / 2;
+                    font-size: $_fs;
+                    color: $white;
+                    border-bottom: 1px solid rgba($_white, $___opacity);
+                }
+
+                .description{
+                    font-size: $fs / 1.1;
+                    padding: $m ;
+                    font-family: 'Roboto',sans-serif;
+                }
+
+                &:hover{
+                    border-color: rgba($white, $___opacity);
+                }
+            }
+            form.contactForm{
+                margin: $m $m / 2;
+                border: 1px solid rgba($_white, $____opacity);
+                padding: $m;
+                @include shadow();
+                transition: $transition border-color;
+
+                &:hover{
+                    border-color: rgba($white, $___opacity);
+                }
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+
+                >*{
+                    flex: 1;
+                    width: 100%;
+                    margin: $m / 1.5;
+                    padding: $m $m *1.5;
+                }
+
+                input, textarea{
+                    background-color: rgba($black, $__opacity);
+                    color: $white;
+                    border: 0;
+                    @include shadow();
+                    border: 1px solid rgba($_white, $___opacity);
+                    font-size: $fs / 1.1;
+                    transition: $transition border-color;
+
+                    &:hover{
+                        border-color: rgba($white, $_opacity);
+                    }
+                }
+                textarea{
+                    min-height: 150px;
+                }
+
+                .buttons{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                    
+                    button{
+                        background-color: transparent;
+                        cursor: pointer;
+                        color: $white;
+                        text-align: center;
+                        text-transform: capitalize;
+                        font-family: 'Oswald', sans-serif;
+                        padding: $m / 2;
+                        transition: $transition background-color;
+                        border: 1px solid rgba($_white, $___opacity);
+                        padding: $m $m * 2;
+                        flex: 1;
+                        margin: 0 $m;
+                        &.active{
+                                background-color: $white;
+                                color: $black;
+                        }
+
+                        &:hover{
+                            @extend .active;
+                        }
+                    }
+                }
+            }
+        }
+
+        .rightSide{
+            border: 1px solid red;
+        }
+    }
+}

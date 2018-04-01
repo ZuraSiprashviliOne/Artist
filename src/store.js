@@ -15,6 +15,7 @@ import HomeReducer from './Reducers/HomeReducer';
 import NavigationReducer from './Reducers/NavigationReducer';
 import GalleryReducer from './Reducers/GalleryReducer';
 import ItemReducer from './Reducers/ItemReducer';
+import AboutReducer from './Reducers/AboutReducer';
 
 export default createStore(
     combineReducers({
@@ -22,7 +23,8 @@ export default createStore(
         HomeReducer,
         NavigationReducer,
         GalleryReducer,
-        ItemReducer
+        ItemReducer,
+        AboutReducer
     }),
     {},
     applyMiddleware(

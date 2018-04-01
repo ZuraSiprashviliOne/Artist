@@ -85,6 +85,10 @@ class Element extends React.Component{
                                     path={'/pages/gallery_item/:itemId'}
                                     exact={true}
                                     component={Pages.Item}/>
+                                <Route
+                                    path={'/pages/about_page'}
+                                    exact={true}
+                                    component={Pages.About}/>
                             </Switch>
                         </div>
                     </Router>
