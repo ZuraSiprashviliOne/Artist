@@ -96,10 +96,12 @@
           width: 100%;
           text-align: center; }
 
-  #item #itemContent .data {
-    flex-direction: column !important; }
-  #item #itemContent .images {
-    height: 350px !important; }
+  #item #itemContent {
+    padding: 0 !important; }
+    #item #itemContent .data {
+      flex-direction: column !important; }
+    #item #itemContent .images {
+      height: 350px !important; }
 
   #about #aboutContent .leftSide {
     display: flex;

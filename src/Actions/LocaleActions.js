@@ -6,17 +6,17 @@ export function INIT_LOCALE(){
         type: 'INIT_LOCALE',
         payload: new Promise((resolve, reject) => {
             Axios.all([
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         locale: 'languages'
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         locale: 'keywords'
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         locale: 'reference'
                     }
@@ -48,7 +48,7 @@ export function SET_LOCALE_PRIMARY_LANGUAGES(){
     return {
         type: 'SET_LOCALE_PRIMARY_LANGUAGES',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     locale: 'languages'
                 }
@@ -74,7 +74,7 @@ export function SET_LOCALE_PRIMARY_REFERENCE(code = null){
     return code === null ? {
         type: 'SET_LOCALE_PRIMARY_REFERENCE',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     locale: 'reference'
                 }
@@ -96,7 +96,7 @@ export function SET_LOCALE_PRIMARY_KEYWORDS_REF(code = 'en'){
     return {
         type: 'SET_LOCALE_PRIMARY_KEYWORDS_REF',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     locale: 'keywords',
                     reference: code
@@ -116,7 +116,7 @@ export function SET_LOCALE_PRIMARY_KEYWORDS_RES(code = 'en'){
     return {
         type: 'SET_LOCALE_PRIMARY_KEYWORDS_RES',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     locale: 'keywords',
                     result: code
@@ -136,7 +136,7 @@ export function SET_LOCALE_SECONDARY_KEYWORDS(){
     return {
         type: 'SET_LOCALE_SECONDARY_KEYWORDS',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     locale: 'keywords'
                 }

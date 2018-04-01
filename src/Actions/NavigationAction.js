@@ -6,12 +6,12 @@ export function SET_NAVIGATION(){
         type: 'SET_NAVIGATION',
         payload: new Promise((resolve, reject) => {
             Axios.all([
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         navigation: 'nav'
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         navigation: 'list'
                     }

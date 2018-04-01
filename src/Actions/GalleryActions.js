@@ -6,12 +6,12 @@ export function SET_GALLERY(){
         type: 'SET_GALLERY',
         payload: new Promise((resolve, reject) => {
             Axios.all([
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         gallery: 'gallery'
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         gallery: 'categories'
                     }
@@ -34,7 +34,7 @@ export function SET_GALLERY_CURRENT_ITEMS(category){
     return {
         type: 'SET_GALLERY_CURRENT_ITEMS',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     gallery: 'items',
                     category: category
@@ -68,7 +68,7 @@ export function LIKE_GALLERY_ITEM(id){
     return {
         type: 'LIKE_GALLERY_ITEM',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     like_gallery_item: id
                 }

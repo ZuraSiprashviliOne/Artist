@@ -6,19 +6,19 @@ export function INIT_ITEM(id) {
         type: 'INIT_ITEM',
         payload: new Promise((resolve, reject) => {
             Axios.all([
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         gallery: 'item',
                         item_data: true
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         gallery: 'item',
                         item: id
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         gallery: 'item',
                         comments: id
@@ -43,7 +43,7 @@ export function SEEN_ITEM(id){
     return {
         type: 'SEEN_ITEM',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     seen_gallery_item: id
                 }
@@ -65,7 +65,7 @@ export function SET_ITEM_IMAGES(id){
     return {
         type: 'SET_ITEM_IMAGES',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     gallery: 'item',
                     images: id
@@ -114,7 +114,7 @@ export function ADD_COMMENT(info){
     return {
         type: 'ADD_COMMENT',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     gallery: 'item',
                     add_comment: info.id,
@@ -136,7 +136,7 @@ export function LIKE_ITEM(id){
     return {
         type: 'LIKE_ITEM',
         payload: new Promise((resolve, reject) => {
-            Axios.get('http://localhost/art/art.php', {
+            Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                 params: {
                     like_gallery_item: id
                 }

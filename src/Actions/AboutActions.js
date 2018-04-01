@@ -6,7 +6,7 @@ export function INIT_ABOUT(){
         type: 'INIT_ABOUT',
         payload: new Promise((resolve, reject) => {
             Axios.all([
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         about: 'about'
                     }

@@ -6,12 +6,12 @@ export function SET_HOME_HEADER(){
         type: 'SET_HOME_HEADER',
         payload: new Promise((resolve, reject) => {
             Axios.all([
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params : {
                         home: 'header'
                     }
                 }),
-                Axios.get('http://localhost/art/art.php', {
+                Axios.get('http://cheerier-trailer.000webhostapp.com/art/art.php', {
                     params: {
                         particles: true
                     }
