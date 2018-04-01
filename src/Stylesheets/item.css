@@ -152,7 +152,7 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          flex-wrap: wrap; }
+          flex-wrap: nowrap; }
           #item #itemContent > *#itemData .data .iages, #item #itemContent > *#itemData .data .info {
             flex: 0.5; }
           #item #itemContent > *#itemData .data .images {
@@ -205,9 +205,9 @@
           #item #itemContent > *#itemData .data .info {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; }
+            justify-content: space-around; }
             #item #itemContent > *#itemData .data .info > * {
-              flex: 1; }
+              flex: none; }
             #item #itemContent > *#itemData .data .info .title {
               text-transform: capitalize;
               font-size: 34px;
@@ -224,7 +224,7 @@
               display: flex;
               flex-direction: row;
               justify-content: flex-start;
-              align-content: center; }
+              align-items: center; }
               #item #itemContent > *#itemData .data .info .titleInfos .w-icon {
                 display: flex;
                 flex-direction: row;
@@ -234,11 +234,11 @@
                 #item #itemContent > *#itemData .data .info .titleInfos .w-icon span {
                   margin: 0 2.5px; }
             #item #itemContent > *#itemData .data .info .description {
-              padding: 10px;
+              padding: 20px 10px;
               border-bottom: 1px solid rgba(249, 249, 249, 0.1);
               display: flex;
               flex-direction: column;
-              justify-content: center; }
+              flex: 1; }
             #item #itemContent > *#itemData .data .info .item_categories {
               padding: 10px;
               border-bottom: 1px solid rgba(249, 249, 249, 0.1);

@@ -1,6 +1,164 @@
 
 @import 'mix';
 
+
+.navMMenu{
+  .navItems{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    align-items: center;
+    font-size: $fs;
+    letter-spacing: 1px;
+
+    .navItem {
+      border: 1px solid rgba($_white, $___opacity);
+      color: $_white;
+      transition: $transition opacity, $transition background-color;
+      display: block;
+      margin: 0 $m;
+
+      @include shadow();
+
+
+      &.active{
+        background-color: $_white !important;
+        color: $_black !important;
+      }
+      
+      .navLink {
+        padding: $m $m * 2;
+        display: block;
+        background: transparent;
+        border: 0;
+        color: inherit;
+        text-transform: inherit;
+        cursor: pointer;
+
+        &:hover{
+          @extend .navLink;
+        }
+      }
+
+      &:hover{
+        @extend .active;
+      }
+
+      &.toggler{
+        display: none;
+      }
+
+      &.language{
+        margin: 0;
+        position: relative;
+
+        &.langsListVis{
+          .languages{
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+
+        .navLink{
+          width: 100px;
+          padding: $m 0;
+          text-align: center;
+        }
+
+        .languages{
+          transition:  $transition;
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          top: $m * 2 + 3px + $fs;
+          left: -1px;
+          right: 0;
+          width: 102px;
+
+          .navItem {
+            margin: 0;
+            border-top: 0;
+            background-color: rgba($_black, $__opacity);
+            color: $_white;
+
+            &.close{
+            }
+
+            &:hover{
+              @extend .active;
+            }
+
+            &:last-child {
+              border-top-width: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+    
+#navSidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba($black, $opacity);
+  color: $white;
+  visibility: hidden;
+  transition: $transition;
+
+  @extend .navMMenu;
+
+  .menu{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .navItems{
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      margin: $m * 2;
+      .navItem{
+        width: calc(100% - 2* #{$m});
+        margin: $m 0 !important;
+        a{
+          padding: $m * 2 $m;
+        }
+        .navLink{
+          display: block;
+          width: calc(100% - 2 * #{$m});
+        }
+        &.language{
+          text-align: left !important;
+          .navLink{
+            text-align: left !important;
+            padding: $m $m * 2;
+            display: block;
+          }
+          .languages{
+            width: 100%;
+            .navItem{
+              width: 100%;
+            }
+          }
+        }
+        
+
+      }
+      .toggler{
+        display: none !important;
+      }
+    }
+  }
+}
+
 #navigation{
   *{
     box-sizing: border-box;
@@ -13,14 +171,7 @@
 
   &.wide{
     .nav {
-      width: 100%;
-      border-radius: 0;
-      padding:  $m * 3;
-      background-color: rgba($black, $_opacity);
-      border-color: rgba($_white, $___opacity / 4);
-      height: $smallNavHeight;
-      padding-top: 0;
-      padding-bottom: 0;
+      @extend .wideNav;
     }
   }
 
@@ -67,104 +218,7 @@
     }
 
     .menu{
-      .navItems{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        text-transform: uppercase;
-        font-family: 'Oswald', sans-serif;
-        font-size: $fs;
-        letter-spacing: 1px;
-
-        .navItem {
-          border: 1px solid rgba($_white, $___opacity);
-          color: $_white;
-          transition: $transition opacity, $transition background-color;
-          display: block;
-          margin: 0 $m;
-
-          @include shadow();
-
-
-          &.active{
-            background-color: $_white !important;
-            color: $_black !important;
-            .navLink{
-              background-color: $_white !important;
-              color: $_black !important;
-            }
-          }
-          
-          .navLink {
-            padding: $m $m * 2;
-            display: block;
-            background: transparent;
-            border: 0;
-            color: inherit;
-            text-transform: inherit;
-            cursor: pointer;
-
-            &:hover{
-              @extend .navLink;
-            }
-          }
-
-          &:hover{
-            @extend .active;
-          }
-
-          &.toggler{
-            display: none;
-          }
-
-          &.language{
-            margin: 0;
-            position: relative;
-
-            &.langsListVis{
-              .languages{
-                visibility: visible;
-                opacity: 1;
-              }
-            }
-
-            .navLink{
-              width: 100px;
-              padding: $m 0;
-              text-align: center;
-            }
-
-            .languages{
-              transition:  $transition;
-              visibility: hidden;
-              opacity: 0;
-              position: absolute;
-              top: $m * 2 + 3px + $fs;
-              left: -1px;
-              right: 0;
-              width: 102px;
-
-              .navItem {
-                margin: 0;
-                border-top: 0;
-                background-color: rgba($_black, $__opacity);
-                color: $_white;
-
-                &.close{
-                }
-
-                &:hover{
-                  @extend .active;
-                }
-
-                &:last-child {
-                  border-top-width: 0;
-                }
-              }
-            }
-          }
-        }
-      }
+      @extend .navMMenu;
     }
   }
 }

@@ -6,6 +6,7 @@ const navigationReducer = (state = {
     logo: null,
     wide: false,
     list: null,
+    navSidebar: false,
     currentPage: null
 }, action) => {
     switch(action.type){
@@ -16,7 +17,13 @@ const navigationReducer = (state = {
             };
             break;
         }
-
+        case 'SET_NAVIGATION_SIDEBAR': {
+            state = {
+                ...state,
+                navSidebar: action.payload
+            };
+            break;
+        }
         case 'SET_NAVIGATION_WIDE': {
             state = {
                 ...state,

@@ -433,15 +433,6 @@ class Gallery extends React.Component{
     constructor(props){
         super(props);
 
-        // this.state = {
-        //     ready: () => (
-        //         checkPromise(this.props.Gallery)
-        //         && this.props.Gallery.current.items ? 
-        //             this.props.Gallery.current.items.every((item) => item !== null)
-        //             : false
-        //     )
-        // };
-
         this.init = this.init.bind(this);
     }
 
@@ -465,9 +456,9 @@ class Gallery extends React.Component{
             && this.props.Gallery.current.items ? 
                 this.props.Gallery.current.items.every((item) => item !== null)
                 : false) === false){
-                if(window.screen.width < 780){
+                if(window.screen.width < 900){
                     this.props.setGalleryOptionsCols(1);
-                }else if(window.screen.width < 1333){
+                }else if(window.screen.width < 1333 && window.screen.width > 900){
                     this.props.setGalleryOptionsCols(2);
                 }
             }

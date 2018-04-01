@@ -40,3 +40,15 @@ $containerWidth: 1333px;
 @mixin shadow(){
   box-shadow: 0 0 15px 4px rgba($black, $___opacity);
 }
+
+
+.wideNav {
+  width: 100%;
+  border-radius: 0;
+  padding:  $m * 3;
+  background-color: rgba($black, $_opacity);
+  border-color: rgba($_white, $___opacity / 4);
+  height: $smallNavHeight;
+  padding-top: 0;
+  padding-bottom: 0;
+}

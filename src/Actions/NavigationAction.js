@@ -30,6 +30,13 @@ export function SET_NAVIGATION(){
     };
 }
 
+export function SET_NAVIGATION_SIDEBAR(val){
+    return {
+        type: 'SET_NAVIGATION_SIDEBAR',
+        payload: val
+    };
+}
+
 export function SET_NAVIGATION_CURRENT_PAGE(slag){
     return {
         type: 'SET_NAVIGATION_CURRENT_PAGE',

@@ -236,21 +236,17 @@ class Infos extends React.Component{
                         ): null
                     }
                 </div>
-                    {this.props.short_description ? (
-                        <div
-                            className={'description'}>
-                                <div 
-                                    dangerouslySetInnerHTML={{__html: this.props.short_description}}
-                                    className={'desc-text'} />
-                        </div>
-                    ): this.props.full_description ? (
-                        <div
-                            className={'description'}>
-                            <div
+                    <div className={'description'}>
+                        {this.props.full_description ? (
+                            <div 
                                 dangerouslySetInnerHTML={{__html: this.props.full_description}}
+                                className={'desc-text'} />
+                        ): this.props.short_description ? (
+                            <div
+                                dangerouslySetInnerHTML={{__html: this.props.short_description}}
                                 className={'desc-text'}/>
-                        </div>
-                    ): null}
+                        ): null}
+                    </div>
                     {this.props.categories.length > 0 ?(
                         <div
                             className={'item_categories'}>

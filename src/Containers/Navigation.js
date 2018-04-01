@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import {Loading} from '../Components/Loading';
-import { SET_NAVIGATION } from '../Actions/NavigationAction';
+import { SET_NAVIGATION, SET_NAVIGATION_SIDEBAR } from '../Actions/NavigationAction';
 import { checkPromise } from '../Helpers/Valid';
 
 import Translate from './Translate';
@@ -13,6 +13,8 @@ import Translate from './Translate';
 import '../Stylesheets/navigation.css';
 
 import FontAwesome from 'react-fontawesome';
+
+import {Scrollbar} from '../Components/Scrollbar';
 
 class NavItem extends React.Component{
     render(){
@@ -60,12 +62,29 @@ class NavMenu extends React.Component{
                                 this.props.setLocale(lang);
                                 this.toggleLangs();
                             }}
-                            className={'navLink'}>
+                            className={'navLink lang'}>
                             {lang}
                         </button>
                     </li>
                 );
             });
+            langItems.push((
+                <li
+                    key={'closerLangs'}
+                    className={'navItem'}>
+                    <button
+                        onClick={() => {
+                            this.toggleLangs();
+                        }}
+                        className={'navLink lang'}>
+                        <Translate
+                            from={this.props.language}
+                            divider={this.props.divider}>
+                            close
+                        </Translate>
+                    </button>
+                </li>
+            ));
 
             navItems.push((
                 <li
@@ -76,7 +95,7 @@ class NavMenu extends React.Component{
                     key={'langs'}>
                     <button
                         onClick={this.toggleLangs}
-                        className={'navLink'}>
+                        className={'navLink lang'}>
                         {this.props.locale.primary.current}
                     </button>
                     <ul
@@ -119,7 +138,7 @@ class NavMenu extends React.Component{
     }
 
     toggleNavBar(){
-        this.menu.classList.toggadd('toggled');
+        this.props.setNavSidebar(true);
     }
 
     render(){
@@ -186,22 +205,63 @@ class Element extends React.Component{
                         setLocale={this.props.setLocale}
                         language={this.props.Navigation.language}
                         list={this.props.Navigation.list}
-                        currentPage={this.props.Navigation.currentPage}/>
+                        currentPage={this.props.Navigation.currentPage}
+                        setNavSidebar={this.props.setNavigationSidebar}/>
                 </nav>
             </div>
         );
     }
 }
 
-class Navigation extends React.Component{
+class NavSidebar extends React.Component{
     constructor(props){
         super(props);
 
-        // this.state = {
-        //     ready: () => (
-        //         checkPromise(this.props.Navigation)
-        //     )
-        // };
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(event){
+        if(event.target.className === 'menu'){
+            this.props.setNavigationSidebar(false);
+        }else{
+            if(event.target.classList.contains('lang')){
+                
+            }else{
+                this.props.setNavigationSidebar(false);
+            }
+        }
+    }
+
+    render(){
+        return (
+            <div
+                onClick={this.handleClick}
+                className={`animated ${this.props.Navigation.navSidebar ? 'bounceInLeft' : 'bounceOutDown'}`}
+                style={{
+                    visibility: this.props.Navigation.navSidebar ? 'visible': 'hidden'
+                }}
+                id={'navSidebar'}>
+                <Scrollbar>
+                    <div className={'animated fadeInDown'}>
+                        <NavMenu 
+                            locale={this.props.Locale}
+                            divider={this.props.Navigation.divider}
+                            setLocale={this.props.setLocale}
+                            language={this.props.Navigation.language}
+                            list={this.props.Navigation.list}
+                            currentPage={this.props.Navigation.currentPage}
+                            setNavSidebar={this.props.setNavigationSidebar}/>
+                    </div>
+                </Scrollbar>
+            </div>
+        )
+    }
+}
+
+class Navigation extends React.Component{
+    constructor(props){
+        super(props);
 
         this.init = this.init.bind(this);
     }
@@ -218,7 +278,10 @@ class Navigation extends React.Component{
 
     render(){
         if(checkPromise(this.props.Navigation)){
-            return <Element {...this.props} /> ;
+            return [
+                <Element {...this.props} key={'a'} />,
+                <NavSidebar {...this.props} key={'b'}/>
+            ] ;
         }else{
             return <Loading />;
         }
@@ -236,6 +299,9 @@ const Dispatches = (dispatch) => {
     return {
         setNavigation: () => {
             dispatch(SET_NAVIGATION());
+        },
+        setNavigationSidebar: (val) => {
+            dispatch(SET_NAVIGATION_SIDEBAR(val));
         }
     };
 };

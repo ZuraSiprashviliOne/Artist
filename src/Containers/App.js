@@ -26,6 +26,7 @@ import 'normalize.css';
 import 'animate.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../Stylesheets/style.css';
+import '../Stylesheets/media.css';
 
 import 'react-id-swiper/src/styles/css/swiper.css';
 
